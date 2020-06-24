@@ -21,6 +21,8 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Create Release
         uses: actions/create-release@v1.1.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUPERSECRET }}
         with:
           # The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag
           tag_name: github.ref
